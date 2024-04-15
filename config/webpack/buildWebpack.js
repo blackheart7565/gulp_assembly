@@ -1,3 +1,4 @@
+import FileincludeWebpackPlugin from "file-include-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import nodePath from "path";
 
@@ -20,6 +21,14 @@ export const buildWebpack = (configs) => {
 					template: nodePath.resolve(configs.paths.src, "components", "pages", page),
 					filename: page
 				});
+			}),
+
+			new FileincludeWebpackPlugin({
+				source: "src/components/pages",
+				htmlBeautifyOptions: {
+					"indent-with-tabs": true,
+					"indent_size": 3
+				},
 			})
 		],
 		// module: {
