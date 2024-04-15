@@ -1,0 +1,9 @@
+.footer {
+	padding: 5px 20px;
+	background-color: #10cf40;
+	flex-shrink: 0;
+
+	@media (min-width: 480px) {
+		background-color: #db0cb9;
+	}
+}

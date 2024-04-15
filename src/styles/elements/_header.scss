@@ -1,0 +1,9 @@
+.header {
+	padding: 5px 20px;
+	background-color: #128e97;
+	flex-shrink: 0;
+
+	@media (min-width: 480px) {
+		background-color: #d18108;
+	}
+}
