@@ -1,6 +1,6 @@
-import FileincludeWebpackPlugin from "file-include-webpack-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import nodePath from "path";
+
+import { buildLoader } from "./buildLoader.js";
+import { buildPlugins } from "./buildPlugins.js";
 
 export const buildWebpack = (configs) => {
 	const isDev = configs.mode === "development";
@@ -14,28 +14,12 @@ export const buildWebpack = (configs) => {
 			filename: "scripts/[name].js",
 			publicPath: "/"
 		},
-		plugins: [
-			...configs.paths.html.map(page => {
-				return new HtmlWebpackPlugin({
-					minify: false,
-					template: nodePath.resolve(configs.paths.src, "components", "pages", page),
-					filename: page
-				});
-			}),
-
-			new FileincludeWebpackPlugin({
-				source: "src/components/pages",
-				htmlBeautifyOptions: {
-					"indent-with-tabs": true,
-					"indent_size": 3
-				},
-			})
-		],
-		// module: {
-		// 	rules: [],
-		// },
+		plugins: buildPlugins(configs),
+		module: {
+			rules: buildLoader(configs),
+		},
 		// resolve: {},
-		devtool: "inline-source-map",
+		devtool: isDev && "inline-source-map",
 		devServer: {
 			historyApiFallback: true,
 			port: configs.port,

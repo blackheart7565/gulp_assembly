@@ -6,4 +6,5 @@ export { scripts } from "./scripts.js";
 
 //# level 3
 export { html } from "./html.js";
+export { style } from "./style.js";
 

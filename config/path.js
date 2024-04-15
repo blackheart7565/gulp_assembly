@@ -7,7 +7,7 @@ const getSrcFolder = (url) => `./src${url || ""}`;
 export const path = {
 	build: {
 		html: getBuildFolder(),
-		css: getBuildFolder("/css/"),
+		css: getBuildFolder("/css"),
 		scripts: getBuildFolder("/scripts/"),
 		images: getBuildFolder("/assets/images/"),
 		fonts: getBuildFolder("/assets/fonts/"),

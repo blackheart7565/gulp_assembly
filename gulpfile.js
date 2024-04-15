@@ -6,12 +6,13 @@ import {
 	clear,
 	html,
 	scripts,
+	style,
 } from "./config/task/index.js";
 
 const build = gulp.series(
 	clear,
 	scripts,
-	gulp.parallel(html)
+	gulp.parallel(html, style)
 );
 
 
