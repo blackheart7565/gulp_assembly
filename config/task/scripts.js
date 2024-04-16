@@ -13,6 +13,7 @@ export const scripts = () => {
 	const { mode } = parseCommandLineArgs(process.argv);
 	return gulp.src(path.src.scripts)
 		.pipe(plumberNotifySettings("JS/TS"))
+		// подержка webpack конфигурации (webpack.config.js)
 		.pipe(webpackStream(webpackConfig({
 			mode,
 		}), webpack))
