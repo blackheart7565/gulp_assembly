@@ -5,9 +5,10 @@ import gulp from "gulp";
 import {
 	clear,
 	html,
+	images,
 	scripts,
 	style,
-	images,
+	taskSuccess
 } from "./config/task/index.js";
 
 const build = gulp.series(
@@ -17,7 +18,8 @@ const build = gulp.series(
 		html,
 		style,
 		images
-	)
+	),
+	taskSuccess
 );
 
 

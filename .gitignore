@@ -1,6 +1,7 @@
 # dependencies
 node_modules
 Desktop.ini
+.idea
 
 # production
 /build
