@@ -7,12 +7,17 @@ import {
 	html,
 	scripts,
 	style,
+	images,
 } from "./config/task/index.js";
 
 const build = gulp.series(
 	clear,
 	scripts,
-	gulp.parallel(html, style)
+	gulp.parallel(
+		html,
+		style,
+		images
+	)
 );
 
 

@@ -1,0 +1,14 @@
+
+gulp-group-css-media-queries : {
+	групирует @media запросы
+}
+gulp-webp-html-nosvg : {
+	позволяет использовать webp изображения исключая svg картинки(иконки), 
+	а если webp изображения нету то берёт стандартное
+}
+
+node-sass-glob-importer : {
+	плагин для webpack который позволяет подключить несколько файлов одновремено в sass
+	Пример:
+		import "elements/**/*.scss"
+}
