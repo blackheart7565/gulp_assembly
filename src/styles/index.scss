@@ -4,7 +4,11 @@
 
 // Common Styles
 @import "./common/vars";
+@import "./common/mixin";
 @import "./common/theme";
 
 // Element Styles
 @import "./elements/**/*.scss";
+
+// include fonts
+@import "./common/fonts";

@@ -21,6 +21,10 @@ export const path = {
 		fonts: getSrcFolder("/assets/fonts/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}"),
 		files: getSrcFolder("/assets/files/**/*"),
 	},
+	other: {
+		fontFolder: getSrcFolder("/assets/fonts"),
+		fontFileAutoGen: getSrcFolder("/styles/common/_fonts.scss")
+	},
 	watch: {
 		// html: getSrcFolder("/components/**/*.html"),
 		// scss: getSrcFolder("/styles/**/*.{sass,scss}"),

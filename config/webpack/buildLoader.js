@@ -28,7 +28,7 @@ export const buildLoader = (configs) => {
 				options: {
 					url: {
 						filter: (url, resourcePath) => {
-							if (url.includes("images")) {
+							if (url.includes("images") || url.includes("fonts")) {
 								return false;
 							}
 							return true;
