@@ -19,7 +19,7 @@ export const buildLoader = (configs) => {
 				options: {
 					search: "../../assets",
 					replace: "../assets",
-					flags: "g"
+					flags: "gi"
 				}
 			},
 			// Translates CSS into CommonJS
