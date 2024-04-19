@@ -10,6 +10,9 @@ import ttf2woff2 from "gulp-ttf2woff2";
 import nodePath from "path";
 
 import {
+	consoleTextColorRed
+} from "../common/colored.js";
+import {
 	checkFontWeight,
 	getDetailsFont,
 	parseCommandLineArgs,
@@ -47,10 +50,7 @@ export const ttfToWoff = () => {
 				(match) => checkFontWeight(match)
 			);
 		}))
-		.pipe(If(
-			mode === "development",
-			gulp.dest(path.other.fontFolder)
-		))
+		.pipe(gulp.dest(path.other.fontFolder))
 		.pipe(If(
 			mode === "production",
 			gulp.dest(path.build.fonts)
@@ -72,10 +72,7 @@ export const ttfToWoff2 = () => {
 				(match) => checkFontWeight(match)
 			);
 		}))
-		.pipe(If(
-			mode === "development",
-			gulp.dest(path.other.fontFolder)
-		))
+		.pipe(gulp.dest(path.other.fontFolder))
 		.pipe(If(
 			mode === "production",
 			gulp.dest(path.build.fonts)
@@ -91,12 +88,16 @@ export const autoGenerationFontFace = () => {
 
 	fs.readdir(path.other.fontFolder, (err, fontFiles) => {
 		if (err) {
-			console.error('Произошла ошибка при чтении директории:', err);
+			console.error(
+				consoleTextColorRed("Произошла ошибка при чтении директории:")
+				, consoleTextColorRed(err)
+			);
 			return;
 		}
 
+		// console.log("fontFiles", fontFiles);
 		if (!fontFiles.length) {
-			console.log('Папка пуста');
+			console.log(consoleTextColorRed("Папка пуста"));
 			return;
 		}
 

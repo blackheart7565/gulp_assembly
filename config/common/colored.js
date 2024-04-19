@@ -17,3 +17,9 @@ export const consoleTextColorBlue = (text) => ` \x1b[34;1m${text}\x1b[0m`;
  * @returns зелёный текст
  */
 export const consoleTextColorGreen = (text) => ` \x1b[32;1m${text}\x1b[0m`;
+/**
+ * 
+ * @param {string} text 
+ * @returns красный текст
+ */
+export const consoleTextColorRed = (text) => ` \x1b[31;1m${text}\x1b[0m`;
