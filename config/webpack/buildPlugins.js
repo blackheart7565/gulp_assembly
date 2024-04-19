@@ -1,3 +1,4 @@
+import CopyPlugin from "copy-webpack-plugin";
 import FileincludeWebpackPlugin from "file-include-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -35,6 +36,17 @@ export const buildPlugins = (configs) => {
 			new MiniCssExtractPlugin({
 				filename: "css/style.css",
 				chunkFilename: "css/style.css",
+			})
+		);
+
+		plugins.push(
+			new CopyPlugin({
+				patterns: [
+					{
+						from: nodePath.resolve(configs.paths.src, "assets", "files"),
+						to: nodePath.resolve(configs.paths.output, "assets", "files")
+					},
+				],
 			})
 		);
 	}
