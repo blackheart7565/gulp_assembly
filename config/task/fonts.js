@@ -24,20 +24,20 @@ import { path } from "../path.js";
 const regExpFontWeight = /(Thin|ExtraLight|Light|Regular|Medium|SemiBold|Bold|ExtraBold|Black)/gi;
 
 export const oftToTtf = () => {
-	return gulp.src(path.src.fonts)
+	return gulp.src(path.src.font.files)
 		.pipe(plumberNotifySettings("Oft_To_Ttf"))
 		.pipe(debug({ title: 'Обработка шрифтов off в ttf:' }))
 		.pipe(fonter({
 			formats: ["ttf"]
 		}))
-		.pipe(gulp.dest(path.other.fontFolder));
+		.pipe(gulp.dest(path.src.font.folder));
 };
 
 export const ttfToWoff = () => {
 	const { mode } = parseCommandLineArgs(process.argv);
 
 	return gulp
-		.src(`${path.other.fontFolder}/*.ttf`)
+		.src(`${path.src.font.folder}/*.ttf`)
 		.pipe(plumberNotifySettings("Ttf_To_Woff"))
 		.pipe(newer(path.build.fonts))
 		.pipe(debug({ title: 'Обработка шрифтов ttf в woff:' }))
@@ -50,7 +50,7 @@ export const ttfToWoff = () => {
 				(match) => checkFontWeight(match)
 			);
 		}))
-		.pipe(gulp.dest(path.other.fontFolder))
+		.pipe(gulp.dest(path.src.font.folder))
 		.pipe(If(
 			mode === "production",
 			gulp.dest(path.build.fonts)
@@ -61,7 +61,7 @@ export const ttfToWoff2 = () => {
 	const { mode } = parseCommandLineArgs(process.argv);
 
 	return gulp
-		.src(`${path.other.fontFolder}/*.ttf`)
+		.src(`${path.src.font.folder}/*.ttf`)
 		.pipe(plumberNotifySettings("Ttf_To_Woff2"))
 		.pipe(newer(path.build.fonts))
 		.pipe(debug({ title: 'Обработка шрифтов ttf в woff2:' }))
@@ -72,7 +72,7 @@ export const ttfToWoff2 = () => {
 				(match) => checkFontWeight(match)
 			);
 		}))
-		.pipe(gulp.dest(path.other.fontFolder))
+		.pipe(gulp.dest(path.src.font.folder))
 		.pipe(If(
 			mode === "production",
 			gulp.dest(path.build.fonts)
@@ -82,11 +82,11 @@ export const ttfToWoff2 = () => {
 // template name file font
 // fontFamily-weight-style.woff
 export const autoGenerationFontFace = () => {
-	let pathFontFile = path.other.fontFileAutoGen;
+	let pathFontFile = path.src.font.fileAutoGen;
 	const extensions = [".woff", ".woff2"];
 	let fontFileDetails = [];
 
-	fs.readdir(path.other.fontFolder, (err, fontFiles) => {
+	fs.readdir(path.src.font.folder, (err, fontFiles) => {
 		if (err) {
 			console.error(
 				consoleTextColorRed("Произошла ошибка при чтении директории:")

@@ -22,6 +22,8 @@ export default (env) => {
 		output: nodePath.resolve(__dirname, "build"),
 		html: htmlPages,
 		src: nodePath.resolve(__dirname, "src"),
+
+		outputStyles: "css/style.css",
 	};
 	const config = buildWebpack({
 		port: env.port ?? 3000,

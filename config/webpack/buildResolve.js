@@ -1,6 +1,6 @@
 // import nodePath from "path";
 
-export const buildResolve = (options) => {
+export const buildResolve = (configs) => {
 	return {
 		extensions: [".tsx", ".ts", ".js", ".jsx"],
 		alias: {

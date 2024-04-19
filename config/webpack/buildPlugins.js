@@ -34,8 +34,8 @@ export const buildPlugins = (configs) => {
 	if (isProd) {
 		plugins.push(
 			new MiniCssExtractPlugin({
-				filename: "css/style.css",
-				chunkFilename: "css/style.css",
+				filename: configs.paths.outputStyles,
+				chunkFilename: configs.paths.outputStyles,
 			})
 		);
 
