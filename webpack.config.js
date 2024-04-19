@@ -2,6 +2,7 @@ import fs from "fs";
 import nodePath from "path";
 import url from "url";
 
+import { path } from "./config/path.js";
 import { buildWebpack } from "./config/webpack/buildWebpack.js";
 import { entryConfig } from "./entry.config.js";
 
@@ -19,7 +20,7 @@ const htmlPages = fs.readdirSync("src/components/pages")
 export default (env) => {
 	const paths = {
 		entry: entryConfig,
-		output: nodePath.resolve(__dirname, "build"),
+		output: nodePath.resolve(__dirname, path.rootBuildFolder.slice(2)),
 		html: htmlPages,
 		src: nodePath.resolve(__dirname, "src"),
 
