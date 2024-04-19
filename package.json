@@ -6,8 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"start": "gulp fonts --mode=development && webpack serve --env mode=development",
-		"dev": "webpack --env mode=production",
-		"build": "gulp build --mode=production"
+		"build": "gulp build --mode=production",
+		"deployDocFolder": "gulp build --mode=production --deploy=true"
 	},
 	"keywords": [],
 	"author": "",
