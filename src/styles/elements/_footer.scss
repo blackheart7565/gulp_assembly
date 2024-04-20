@@ -1,9 +1,151 @@
 .footer {
-	padding: 5px 20px;
-	background-color: #10cf40;
-	flex-shrink: 0;
+	$footer: &;
 
-	@media (min-width: 480px) {
-		background-color: #db0cb9;
+	width: 100%;
+	background-color: #0B0C1E;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		min-height: 10rem;
+		padding: 20px;
+	}
+
+	&__social {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: 15px;
+
+		&-icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 40px;
+			height: 40px;
+			background-color: #fff;
+			border-radius: 50%;
+			padding: 10px;
+			color: #000;
+			transition: background-color 0.2s ease-in-out;
+
+			svg {
+				transition: color 0.2s ease-in-out;
+			}
+
+			@media (min-width: 480px) {
+				width: 50px;
+				height: 50px;
+			}
+		}
+	}
+
+	&__twitter {
+		&:hover {
+			background-color: #131313;
+
+			svg {
+				color: #1797E9;
+			}
+		}
+	}
+
+	&__youtube {
+		&:hover {
+			background-color: #131313;
+
+			svg {
+				color: #FF0000;
+			}
+		}
+	}
+
+	&__linkedin {
+		&:hover {
+			background-color: #131313;
+
+			svg {
+				color: #0964BB;
+			}
+		}
+	}
+
+	&__telegram {
+		&:hover {
+			background-color: #131313;
+
+			svg {
+				color: #30A4DA;
+			}
+		}
+	}
+
+	&__facebook {
+		&:hover {
+			background-color: #131313;
+
+			svg {
+				color: #0863F7;
+			}
+		}
+	}
+
+	&__nav {
+		&-list {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 20px;
+
+			@media (min-width: 480px) {
+				gap: 30px;
+			}
+		}
+
+		&-item {
+			font-size: 18px;
+			flex-basis: 30%;
+
+			@media (min-width: 480px) {
+				flex-basis: 0;
+			}
+
+			&:hover {
+				#{$footer}__nav-link {
+					color: #09ddec;
+				}
+			}
+		}
+
+		&-link {
+			transition: color 0.17s ease-in-out;
+		}
+	}
+
+	&__copyright {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		background-color: #141628;
+		padding: 0 10px;
+	}
+
+	&__copyright-text {
+		color: #FFF;
+		font-weight: 600;
+		padding: 5px 0;
+		text-align: center;
+		font-size: 12px;
+
+		@media (min-width: 480px) {
+			font-size: 15px;
+		}
 	}
 }

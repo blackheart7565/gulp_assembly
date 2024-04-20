@@ -22,6 +22,7 @@
 			"\t\t</main>",
 			"\t\t@@include(\"../elements/_footer.html\")",
 			"\t</div>",
+			"\t@@include(\"../elements/html/_scripts.html\")",
 			"\t<script src=\"scripts/${TM_FILENAME_BASE/(.*)/${1:/downcase}/}.js\"></script>",
 			"</body>",
 			"",
