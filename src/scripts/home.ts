@@ -1,4 +1,4 @@
-import { sum } from "./modules/func.js";
+import { sum } from "./modules/func";
 
 import "../styles/index.scss";
 

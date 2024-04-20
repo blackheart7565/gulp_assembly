@@ -16,7 +16,7 @@ const entryFiles = () => {
 			};
 		}, {});
 };
-
+console.log("entryFiles", entryFiles());
 export const entryConfig = {
 	...entryFiles(),
 	// home: nodePath.resolve(__dirname, "src", "scripts", "home.js"),

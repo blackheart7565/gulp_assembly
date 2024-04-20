@@ -69,6 +69,6 @@ export const buildLoader = (configs) => {
 	return [
 		assetLoader,
 		sassLoader,
-		tsAndTsLoader
+		tsAndTsLoader,
 	];
 };
