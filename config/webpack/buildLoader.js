@@ -11,6 +11,7 @@ export const buildLoader = (configs) => {
 
 	const sassLoader = {
 		test: /\.s[ac]ss$/i,
+		exclude: /node_modules/,
 		use: [
 			// Creates `style` nodes from JS strings
 			isDev ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -48,8 +49,26 @@ export const buildLoader = (configs) => {
 		],
 	};
 
+	const tsAndTsLoader = {
+		test: /\.(t|j)sx?$/,
+		exclude: /node_modules/,
+		use: [
+			{
+				loader: "babel-loader",
+				options: {
+					presets: [
+						"@babel/preset-env",
+						"@babel/preset-typescript"
+					],
+				},
+			},
+			"ts-loader"
+		],
+	};
+
 	return [
 		assetLoader,
-		sassLoader
+		sassLoader,
+		tsAndTsLoader
 	];
 };

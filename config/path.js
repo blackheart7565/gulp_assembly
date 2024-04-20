@@ -4,8 +4,6 @@ import {
 
 const { deploy } = parseCommandLineArgs(process.argv);
 
-console.log("deploy", deploy);
-
 const buildFolder = deploy ? "./doc" : "./build";
 const srcFolder = "./src";
 
