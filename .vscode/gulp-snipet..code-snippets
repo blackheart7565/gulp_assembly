@@ -1,0 +1,32 @@
+{
+	"HTML-Template": {
+		"scope": "html",
+		"prefix": [
+			"!",
+			"html",
+			"h"
+		],
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"en\">",
+			"",
+			"@@include(\"../elements/html/_head.html\", {",
+			"\t\"title\": \"${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}\"",
+			"})",
+			"",
+			"<body>",
+			"\t<div class=\"wrapper\">",
+			"\t\t@@include(\"../elements/_header.html\")",
+			"\t\t<main class=\"main\">",
+			"\t\t\t${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}",
+			"\t\t</main>",
+			"\t\t@@include(\"../elements/_footer.html\")",
+			"\t</div>",
+			"\t<script src=\"scripts/${TM_FILENAME_BASE/(.*)/${1:/downcase}/}.js\"></script>",
+			"</body>",
+			"",
+			"</html>",
+		],
+		"description": "Create a function with the file name in camelCase"
+	}
+}
